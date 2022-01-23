@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: df2h
+Implementation-Version: 2.0.0
+Built-By: Dell pc 1
+Implementation-Vendor-Id: com.df2h.lsk
+Build-Jdk: 1.8.0_131
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/df2h
+Created-By: Maven Integration for Eclipse
+Main-Class: com.df2h.lsk.DF2HApplication
+

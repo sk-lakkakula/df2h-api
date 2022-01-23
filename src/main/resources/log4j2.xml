@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" moniotorLevel="30">
+	<properties>
+		<property name="LOG_PATTERN">%d{yyyy-MM-dd'T'HH:mm:ss.SSS} [%t] %-5level
+			%logger{36} - %msg%n</property>
+		<property name="APP_LOG_ROOT">/usr/share/tomcat8/logs</property>
+	</properties>
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT" follow="true">
+			<PatternLayout pattern="${LOG_PATTERN}" />
+		</Console>
+		<RollingFile name="Df2hLog"
+			fileName="${APP_LOG_ROOT}/df2h_app.log"
+			filePattern="${APP_LOG_ROOT}/_%d{dd-MM-yyyy}.df2h_app.log}">
+			<PatternLayout pattern="${LOG_PATTERN}" />
+			<Policies>
+				<sizeBasedTriggeringPolicy size="19000kb" />
+			</Policies>
+			<DefaultRolloverStrategy max="1" />
+		</RollingFile>
+	</Appenders>
+	<Loggers>
+		<Logger name="com.df2h.lsk" level="info" additivity="false">
+			<AppenderRef ref="Df2hLog" />
+			<AppenderRef ref="Console" />
+		</Logger>
+		
+		<Root level="info">
+			<AppenderRef ref="Console" />
+		</Root>
+	</Loggers>
+</Configuration>
